@@ -1,46 +1,101 @@
-# Getting Started with Create React App
+# CMS Frontend
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Um sistema de gerenciamento de conteúdo (CMS) moderno construído com React, TypeScript e Material UI.
 
-## Available Scripts
+## Funcionalidades
 
-In the project directory, you can run:
+- 🔐 Autenticação de usuários (login/registro)
+- 📝 Criação, edição e exclusão de conteúdo
+- 🏷️ Gerenciamento de categorias
+- 🔍 Pesquisa e filtragem de conteúdo
+- 📊 Dashboard com estatísticas
+- 🎨 Interface moderna e responsiva
 
-### `npm start`
+## Tecnologias Utilizadas
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- React 18
+- TypeScript
+- Material UI 5
+- React Router 6
+- Axios para requisições HTTP
+- Context API para gerenciamento de estado
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Estrutura do Projeto
 
-### `npm test`
+```
+src/
+  ├── components/       # Componentes reutilizáveis
+  │   ├── auth/         # Componentes de autenticação
+  │   ├── content/      # Componentes relacionados a conteúdo
+  │   └── layout/       # Componentes de layout (Header, Sidebar, etc.)
+  ├── context/          # Contextos React (AuthContext, etc.)
+  ├── pages/            # Páginas da aplicação
+  ├── services/         # Serviços (API, etc.)
+  ├── types/            # Definições de tipos TypeScript
+  └── utils/            # Funções utilitárias
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Instalação
 
-### `npm run build`
+1. Clone o repositório:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```bash
+git clone https://github.com/seu-usuario/cms-frontend.git
+cd cms-frontend
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+2. Instale as dependências:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```bash
+npm install
+```
 
-### `npm run eject`
+3. Inicie o servidor de desenvolvimento:
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+```bash
+npm start
+```
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+4. Acesse a aplicação em [http://localhost:3000](http://localhost:3000)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## Uso
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+### Autenticação
 
-## Learn More
+- Acesse a página de login em `/login`
+- Para criar uma nova conta, acesse `/register`
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Dashboard
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Após o login, você será redirecionado para o dashboard, onde poderá ver estatísticas e informações resumidas.
+
+### Gerenciamento de Conteúdo
+
+- Lista de conteúdos: `/contents`
+- Criar novo conteúdo: `/contents/new`
+- Editar conteúdo: `/contents/edit/:id`
+
+## Configuração da API
+
+Por padrão, a aplicação está configurada para usar uma API simulada. Para conectar a uma API real, edite o arquivo `src/services/api.ts` e atualize a URL base:
+
+```typescript
+const api = axios.create({
+  baseURL: "https://sua-api-real.com",
+  timeout: 10000,
+});
+```
+
+## Build para Produção
+
+Para criar uma versão otimizada para produção:
+
+```bash
+npm run build
+```
+
+Os arquivos serão gerados na pasta `build/`.
+
+## Licença
+
+MIT
